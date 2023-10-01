@@ -1,7 +1,7 @@
 import os
 import argparse
 import numpy as np
-
+os.environ['CUDA_VISIBLE_DEVICES']='2'
 import torch
 from torch.utils.data import DataLoader
 from pytorch_lightning import Trainer

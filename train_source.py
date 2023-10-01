@@ -37,9 +37,9 @@ def train(config):
     except AttributeError('--> Setting default class mapping path!'):
         mapping_path = None
 
-    training_dataset, validation_dataset, target_dataset = get_dataset(dataset_name=config.dataset.name,
-                                                                       dataset_path=config.dataset.dataset_path,
-                                                                       target_name=config.dataset.target,
+    training_dataset, validation_dataset, target_dataset = get_dataset(dataset_name=config.dataset.name, # SynLiDAR
+                                                                       dataset_path=config.dataset.dataset_path, # data/SynLiDAR/mini
+                                                                       target_name=config.dataset.target, # SemanticPOSS
                                                                        voxel_size=config.dataset.voxel_size,
                                                                        augment_data=config.dataset.augment_data,
                                                                        version=config.dataset.version,

@@ -131,7 +131,8 @@ def get_dataset(dataset_name: str,
                                              weights_path=weights_path)
 
         if target_name == 'SemanticKITTI':
-            main_path, _ = os.path.split(dataset_path)
+            # main_path, _ = os.path.split(dataset_path)
+            main_path = 'data'
             target_dataset_path = os.path.join(main_path, 'SemanticKITTI/data/sequences/')
 
             target_mapping_path = '_resources/semantic-kitti.yaml'
@@ -153,7 +154,8 @@ def get_dataset(dataset_name: str,
             target_dataset.color_map = synlidar2kitti_color
 
         elif target_name == 'SemanticPOSS':
-            main_path, _ = os.path.split(dataset_path)
+            # main_path, _ = os.path.split(dataset_path) # data/SynLiDAR/mini
+            main_path = 'data'
             target_dataset_path = os.path.join(main_path, 'SemanticPOSS/sequences/')
             target_mapping_path = '_resources/semanticposs.yaml'
             target_dataset = SemanticPOSSDataset(dataset_path=target_dataset_path,

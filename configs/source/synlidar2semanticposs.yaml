@@ -1,12 +1,13 @@
 model:
   name: 'MinkUNet34'
   in_feat_size: 1
-  out_classes: 19
+  out_classes: 13
 
+# 这个地方如果是对SemanticPOSS来说的话就是mini，对SemanticKITTI就是full
 dataset:
-  version: 'full'
+  version: 'mini'
   name: 'SynLiDAR'
-  dataset_path: 'data/SynLiDAR'
+  dataset_path: 'data/SynLiDAR/mini'
   mapping_path: '_resources/synlidar_semanticposs.yaml'
   target: 'SemanticPOSS'
   voxel_size: 0.05
@@ -18,7 +19,7 @@ dataset:
 pipeline:
   epochs: 100
   steps: null
-  gpus: [0, 1]
+  gpus: [2]
   precision: 32
   loss: 'SoftDICELoss'
   seed: 1234
@@ -46,6 +47,6 @@ pipeline:
 
   wandb:
     run_name: 'SOURCE-WARMUP-SynLiDAR2SemanticPOSS'
-    project_name: 'cosmix-uda'
-    entity_name: 'amazing-name'
-    offline: false
+    project_name: 'cosmix'
+    entity_name: 'liujxiao'
+    offline: true
